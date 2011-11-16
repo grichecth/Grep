@@ -1,0 +1,10 @@
+name: GUI test
+description: GUI TesT
+main: com.emmz.grich.grep.grep
+version: 1.0
+author: Grich
+commands:
+   ignite:
+      description: This is a demo command.
+      usage: /<command> [player]
+
