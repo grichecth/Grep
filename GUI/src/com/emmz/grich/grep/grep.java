@@ -25,18 +25,17 @@ public class grep extends JavaPlugin {
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
+		Player player =(Player) sender;
 	    if(cmd.getName().equalsIgnoreCase("grep")){
-	    	Player player =(Player) sender;
-	    	World here = player.getWorld();
-			if(here.getName() == "CraftWorld{name=world_nether}"){
-				player.sendMessage(ChatColor.AQUA + "" + here.getName());
+	    	if(args.length==1 && args[0].equalsIgnoreCase("whereami")){
+	    		player.sendMessage(ChatColor.YELLOW + "You're in world " + player.getWorld().getName() + ".");
+	    		return true;
+	    	} else {
+				player.sendMessage("Wrong usage, See /grep help");
 				return true;
-			} else {
-				player.sendMessage("Not sure where you are.");
-				return true;
-			}	
-
-	    }
+			}
+	    	
+		} 
 	    return false;
 	}	
 	
