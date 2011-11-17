@@ -8,8 +8,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.gui.GenericButton;
+import org.getspout.spoutapi.gui.GenericLabel;
 import org.getspout.spoutapi.gui.GenericPopup;
 import org.getspout.spoutapi.gui.GenericTexture;
+import org.getspout.spoutapi.gui.RenderPriority;
 import org.getspout.spoutapi.gui.WidgetAnchor;
 
 
@@ -30,6 +32,7 @@ public class grep extends JavaPlugin {
 	}
 	
 	
+	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		Player player =(Player) sender;
 	    if(cmd.getName().equalsIgnoreCase("grep")){
@@ -41,18 +44,26 @@ public class grep extends JavaPlugin {
 	    		SpoutPlayer splayer = SpoutManager.getPlayer(player);
 	    		GenericPopup popup = new GenericPopup();
 	    		GenericButton button = new GenericButton("Button");
-	    		
+	    		GenericTexture texture = new GenericTexture();
+	    		GenericLabel title = new GenericLabel();
 	    	
 	    		button.setWidth(40).setHeight(20);
-	    		popup.attachWidget(button);
 	    		popup.setX(10).setY(10).setWidth(30).setHeight(30);
 	    		popup.setTransparent(true);
-	    		GenericTexture texture = new GenericTexture();
-	    		texture.setUrl("http://upload.wikimedia.org/wikipedia/en/b/b0/RANDOM.PNG"); 
-	    		texture.setWidth(400).setHeight(200);
-	    		texture.setAnchor(WidgetAnchor.CENTER_CENTER).setX(-200).setY(-100);
+
+	    		texture.setUrl("https://lh5.googleusercontent.com/-lw_R5n0cGQc/TsRncG-grAI/AAAAAAAAAI4/3KHQ4sc20eM/s300/msgb.png"); 
+	    		texture.setWidth(300).setHeight(150);
+	    		texture.setAnchor(WidgetAnchor.CENTER_CENTER).setX(-150).setY(-75);
+	    		
+	    		title.setAnchor(WidgetAnchor.CENTER_CENTER).setY(-65);
+	    		title.setText("What is up!");
+	    		
 	    		button.setAnchor(WidgetAnchor.CENTER_CENTER);
-	    		//popup.attachWidget(texture);
+	 //http://wiki.getspout.org/Containers   		
+	    		popup.attachWidget(texture).setPriority(RenderPriority.High);
+	    		popup.attachWidget(title).setPriority(RenderPriority.Normal);
+	    		popup.attachWidget(button).setPriority(RenderPriority.Normal);
+	    		
 	    		splayer.getMainScreen().attachPopupScreen(popup);
 	    		
 
