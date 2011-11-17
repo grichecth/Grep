@@ -1,10 +1,12 @@
 name: GUI test
-description: GUI TesT
+description: GUI Test
 main: com.emmz.grich.grep.grep
 version: 1.0
 author: Grich
+depend: [Spout]
 commands:
    grep:
       description: Main GREP Handle
       usage: /<command> whereami - Shows what world you are in.
+             /<command> gui - Opens up main app.
 

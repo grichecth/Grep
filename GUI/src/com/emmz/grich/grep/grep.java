@@ -10,6 +10,7 @@ import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.gui.GenericButton;
 import org.getspout.spoutapi.gui.GenericPopup;
 import org.getspout.spoutapi.gui.GenericTexture;
+import org.getspout.spoutapi.gui.WidgetAnchor;
 
 
 import org.getspout.spoutapi.player.SpoutPlayer;
@@ -20,13 +21,14 @@ public class grep extends JavaPlugin {
 
 	
 	public void onEnable(){ 
-		log.info("Your plugin has been enabled!");
+		log.info("Grep enabled!");
 
 	}
 	
 	public void onDisable(){ 
 	
 	}
+	
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		Player player =(Player) sender;
@@ -36,21 +38,22 @@ public class grep extends JavaPlugin {
 	    		return true;
 	    	} else if(args.length==1 && args[0].equalsIgnoreCase("gui")){
 	    		//player.sendMessage(ChatColor.YELLOW + "GUI!");
-	    		SpoutPlayer splayer = SpoutManager.getPlayer(player); // Get the SpoutPlayer
-	    		GenericPopup popup = new GenericPopup(); // Create a new popup
-	    		GenericButton button = new GenericButton("Button"); // Read more about creating widgets in Widgets
+	    		SpoutPlayer splayer = SpoutManager.getPlayer(player);
+	    		GenericPopup popup = new GenericPopup();
+	    		GenericButton button = new GenericButton("Button");
 	    		
-	    		
-	    		button.setWidth(200).setHeight(20);
-	    		popup.attachWidget(button); // Attach the widget to the popup
+	    	
+	    		button.setWidth(40).setHeight(20);
+	    		popup.attachWidget(button);
 	    		popup.setX(10).setY(10).setWidth(30).setHeight(30);
 	    		popup.setTransparent(true);
 	    		GenericTexture texture = new GenericTexture();
-	    		texture.setUrl("https://lh6.googleusercontent.com/-gshXWj1VVAk/TsQBWrj3S0I/AAAAAAAAAHA/rK0vnq9pLwM/s176/bg.png"); //Have to be a png or jpg
-	    		texture.setWidth(176).setHeight(83); //Use the same size as the png here.
+	    		texture.setUrl("http://upload.wikimedia.org/wikipedia/en/b/b0/RANDOM.PNG"); 
+	    		texture.setWidth(400).setHeight(200);
+	    		texture.setAnchor(WidgetAnchor.CENTER_CENTER).setX(-200).setY(-100);
 	    		button.setAnchor(WidgetAnchor.CENTER_CENTER);
-	    		popup.attachWidget(texture);
-	    		splayer.getMainScreen().attachPopupScreen(popup); // Show the player the popup
+	    		//popup.attachWidget(texture);
+	    		splayer.getMainScreen().attachPopupScreen(popup);
 	    		
 
 	    		return true;
