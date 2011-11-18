@@ -6,7 +6,8 @@ author: Grich
 depend: [Spout]
 commands:
    grep:
-      description: Main GREP Handle
-      usage: /<command> whereami - Shows what world you are in.
-             /<command> gui - Opens up main app.
-
+      description: GREP
+      usage: /<command> - Opens user manager.
+   whereami:
+      description: GREP Location
+      usage: /<command> - Shows your location.

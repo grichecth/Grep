@@ -1,10 +1,11 @@
 package com.emmz.grich.grep;
-
 import java.util.logging.Logger;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.gui.GenericButton;
@@ -21,58 +22,54 @@ public class grep extends JavaPlugin {
 	//private static final String String = null;
 	Logger log = Logger.getLogger("Minecraft");
 
-	
 	public void onEnable(){ 
 		log.info("Grep enabled!");
-
+		PluginManager pm = this.getServer().getPluginManager();
+		private grep plugin;
+		SpoutManager.getFileManager().addToPreLoginCache(plugin, "https://lh5.googleusercontent.com/-lw_R5n0cGQc/TsRncG-grAI/AAAAAAAAAI4/3KHQ4sc20eM/s300/msgb.png");
 	}
 	
-	public void onDisable(){ 
-	
+	public void onDisable(){	
 	}
-	
 	
 	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		Player player =(Player) sender;
-	    if(cmd.getName().equalsIgnoreCase("grep")){
-	    	if(args.length==1 && args[0].equalsIgnoreCase("whereami")){
-	    		player.sendMessage(ChatColor.YELLOW + "You're in world " + player.getWorld().getName() + ".");
-	    		return true;
-	    	} else if(args.length==1 && args[0].equalsIgnoreCase("gui")){
-	    		//player.sendMessage(ChatColor.YELLOW + "GUI!");
-	    		SpoutPlayer splayer = SpoutManager.getPlayer(player);
-	    		GenericPopup popup = new GenericPopup();
-	    		GenericButton button = new GenericButton("Button");
-	    		GenericTexture texture = new GenericTexture();
-	    		GenericLabel title = new GenericLabel();
-	    	
-	    		button.setWidth(40).setHeight(20);
-	    		popup.setX(10).setY(10).setWidth(30).setHeight(30);
-	    		popup.setTransparent(true);
+		SpoutPlayer splayer = SpoutManager.getPlayer(player);
+		if(cmd.getName().equalsIgnoreCase("whereami")){				//whereami START
+    		player.sendMessage(ChatColor.YELLOW + "You're in: " + player.getWorld().getName() + ".");
+    		return true;	
+		}															//whereami END
+	    if(cmd.getName().equalsIgnoreCase("grep")){					//GREP START
+	    	GenericPopup popup = new GenericPopup();
+    		popup.setTransparent(true);
+    			    		
+    		GenericButton button = new GenericButton("Button");		//Next lines define GUI display
+    		GenericTexture texture = new GenericTexture();
+    		GenericLabel title = new GenericLabel();
+    		
+    		texture
+    		.setUrl("https://lh5.googleusercontent.com/-lw_R5n0cGQc/TsRncG-grAI/AAAAAAAAAI4/3KHQ4sc20eM/s300/msgb.png")
+    		.setWidth(300)
+    		.setHeight(150); 
+    		
+    		title.setText(ChatColor.AQUA+"G"+ChatColor.WHITE+"rief " + ChatColor.AQUA+"Rep"+ChatColor.WHITE+"orter by Grichecth");
+    		
+    		texture.setAnchor(WidgetAnchor.CENTER_CENTER).setX(-150).setY(-75);
+    		button.setWidth(40).setHeight(20).setAnchor(WidgetAnchor.CENTER_CENTER).setX(-20);
+    		title.setWidth(140).setAnchor(WidgetAnchor.CENTER_CENTER).setX(-70).setY(-64);
+    		
+    		texture.setPriority(RenderPriority.Highest);
+    		title.setPriority(RenderPriority.High);
+    		button.setPriority(RenderPriority.Normal);
 
-	    		texture.setUrl("https://lh5.googleusercontent.com/-lw_R5n0cGQc/TsRncG-grAI/AAAAAAAAAI4/3KHQ4sc20eM/s300/msgb.png"); 
-	    		texture.setWidth(300).setHeight(150);
-	    		texture.setAnchor(WidgetAnchor.CENTER_CENTER).setX(-150).setY(-75);
-	    		
-	    		title.setAnchor(WidgetAnchor.CENTER_CENTER).setY(-65);
-	    		title.setText("What is up!");
-	    		
-	    		button.setAnchor(WidgetAnchor.CENTER_CENTER);
-	 //http://wiki.getspout.org/Containers   		
-	    		popup.attachWidget(texture).setPriority(RenderPriority.High);
-	    		popup.attachWidget(title).setPriority(RenderPriority.Normal);
-	    		popup.attachWidget(button).setPriority(RenderPriority.Normal);
-	    		
-	    		splayer.getMainScreen().attachPopupScreen(popup);
-	    		
-
-	    		return true;
-	    	} else {
-				return false;
-			}
-	    	
-		} 
+    		popup.attachWidget(texture);
+    		popup.attachWidget(title);
+    		popup.attachWidget(button);
+    		
+    		splayer.getMainScreen().attachPopupScreen(popup);
+    		return true;	
+	    } 															//GREP End
 	    return false;
 	}	
 	
