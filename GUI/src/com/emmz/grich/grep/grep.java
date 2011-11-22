@@ -23,17 +23,17 @@ import org.getspout.spoutapi.gui.WidgetAnchor;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
 public class grep extends JavaPlugin {
+	
 	private final ButtonListener ScreenListener = new ButtonListener(this);
 
 	Logger log = Logger.getLogger("Minecraft");
 
 	Plugin plugin;
-
-	public void onEnable(){ 
+ 
+    public void onEnable(){ 
 		log.info("Grep enabled!");
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvent(Event.Type.CUSTOM_EVENT, ScreenListener, Event.Priority.Normal, this);
-
 	}
 
 	
@@ -56,6 +56,7 @@ public class grep extends JavaPlugin {
     		GenericButton reset_search = new GenericButton("Reset");
     		GenericTexture texture = new GenericTexture();
     		GenericLabel title = new GenericLabel();
+    		GenericLabel results = new GenericLabel();
     		GenericTextField searchbox = new GenericTextField();
     		
     		texture
@@ -69,20 +70,24 @@ public class grep extends JavaPlugin {
     		search.setWidth(40).setHeight(15).setAnchor(WidgetAnchor.CENTER_CENTER).setX(10).setY(-50);
     		reset_search.setWidth(40).setHeight(15).setAnchor(WidgetAnchor.CENTER_CENTER).setX(55).setY(-50);
     		title.setWidth(140).setAnchor(WidgetAnchor.CENTER_CENTER).setX(-70).setY(-64);
+    		results.setWidth(290).setAnchor(WidgetAnchor.CENTER_CENTER).setX(-140).setY(-15);
     		searchbox.setWidth(105).setHeight(15).setAnchor(WidgetAnchor.CENTER_CENTER).setX(-100).setY(-50);
     		
-    		texture.setPriority(RenderPriority.Highest);
-    		title.setPriority(RenderPriority.High);
-    		search.setPriority(RenderPriority.Normal);
+    		texture.setPriority(RenderPriority.High);
+    		title.setPriority(RenderPriority.Lowest);
+    		results.setPriority(RenderPriority.Lowest);
+    		search.setPriority(RenderPriority.Highest);
     		reset_search.setPriority(RenderPriority.Normal);
-    		searchbox.setPriority(RenderPriority.Lowest);
+    		searchbox.setPriority(RenderPriority.Normal);
     		
     		popup.attachWidget(reset_search);
     		popup.attachWidget(searchbox);
     		popup.attachWidget(texture);
     		popup.attachWidget(title);
+    		popup.attachWidget(results);
     		popup.attachWidget(search);
     		
+   		
     		splayer.getMainScreen().attachPopupScreen(popup);
     		return true;	
 	    } 															//GREP End
