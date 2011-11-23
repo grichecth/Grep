@@ -30,12 +30,15 @@ public class grep extends JavaPlugin {
 
 	Plugin plugin;
 	
-	private static String resultdata;
-	public static void getFirstName(String string)
-	   {
-	     resultdata = string;
-	   }
+	public static String resultdata = "poop";
 	
+
+	public static String getlabel(){
+	    return resultdata;
+	}
+	public static void changeresultdata(String change){
+		resultdata = change;
+	}
 	
     public void onEnable(){ 
 		log.info("Grep enabled!");

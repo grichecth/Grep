@@ -29,8 +29,9 @@ public class ButtonListener extends ScreenListener {
     		ResultSet rs = st.executeQuery("SELECT name FROM users");
 		        
 		    while (rs.next()) {
-		    	System.out.println(rs.getString(1));
-		    	grep.getFirstName("boob");
+		    	//System.out.println(rs.getString(1));
+		    	System.out.println(grep.getlabel());
+		    	grep.changeresultdata("Shit");
 	        }
 		    
 		    rs.close();st.close();con.close();
