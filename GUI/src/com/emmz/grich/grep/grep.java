@@ -29,7 +29,14 @@ public class grep extends JavaPlugin {
 	Logger log = Logger.getLogger("Minecraft");
 
 	Plugin plugin;
- 
+	
+	private static String resultdata;
+	public static void getFirstName(String string)
+	   {
+	     resultdata = string;
+	   }
+	
+	
     public void onEnable(){ 
 		log.info("Grep enabled!");
 		PluginManager pm = getServer().getPluginManager();
@@ -51,21 +58,21 @@ public class grep extends JavaPlugin {
 	    if(cmd.getName().equalsIgnoreCase("grep")){					//GREP START
 	    	GenericPopup popup = new GenericPopup();
     		popup.setTransparent(true);
-    			    		
+    		GenericLabel results = new GenericLabel();	    		
     		GenericButton search = new GenericButton("Search");		//Next lines define GUI display
     		GenericButton reset_search = new GenericButton("Reset");
     		GenericTexture texture = new GenericTexture();
     		GenericLabel title = new GenericLabel();
-    		GenericLabel results = new GenericLabel();
+    		
     		GenericTextField searchbox = new GenericTextField();
     		
     		texture
     		.setUrl("https://lh4.googleusercontent.com/-HXp3NY01Eok/TsclEts-qaI/AAAAAAAAAJo/bz6Qdo57iJw/s300/msgb.png")
     		.setWidth(300)
     		.setHeight(150); 
-    		
+    		results.setText(resultdata);
     		title.setText(ChatColor.AQUA+"G"+ChatColor.WHITE+"rief " + ChatColor.AQUA+"Rep"+ChatColor.WHITE+"orter by Grichecth");
-    		
+    	
     		texture.setAnchor(WidgetAnchor.CENTER_CENTER).setX(-150).setY(-75);
     		search.setWidth(40).setHeight(15).setAnchor(WidgetAnchor.CENTER_CENTER).setX(10).setY(-50);
     		reset_search.setWidth(40).setHeight(15).setAnchor(WidgetAnchor.CENTER_CENTER).setX(55).setY(-50);
