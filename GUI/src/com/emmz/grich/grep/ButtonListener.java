@@ -60,7 +60,7 @@ public class ButtonListener extends ScreenListener {
 		popup.attachWidget(searchbox);
 		//End    		
 	//ResultsBox	
-    	//results.setText("Waiting on Query..");
+    	results.setText("Waiting on Query..");
     	results.setWidth(290).setAnchor(WidgetAnchor.CENTER_CENTER).setX(-140).setY(-15).setPriority(RenderPriority.Lowest);
   	    popup.attachWidget(results);
   	    //End

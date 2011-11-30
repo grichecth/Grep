@@ -25,7 +25,7 @@ public class TextboxInputListener extends InputListener {
     public void onKeyPressedEvent(KeyPressedEvent event) {
     	Player player = event.getPlayer();
 		SpoutPlayer splayer = SpoutManager.getPlayer(player);
-
+		ButtonListener.searchbox.isFocus();
     	if (event.getKey() == Keyboard.KEY_RETURN) {
     		//if(ButtonListener.searchbox.isFocused()){
     			//ButtonListener.TextChange(splayer);
@@ -33,20 +33,20 @@ public class TextboxInputListener extends InputListener {
     			try {
     				con = DriverManager.getConnection(url, user, password);
     				st = con.createStatement();
-    				System.out.print("SELECT * FROM users WHERE name = '" + ButtonListener.searchbox.getText() + "'");
-    				ResultSet rs = st.executeQuery("SELECT * FROM users WHERE name = '" + ButtonListener.searchbox.getText() + "'");
+    				ResultSet rs = st.executeQuery("SELECT name FROM users WHERE name = '" + ButtonListener.searchbox.getText() + "'");
     				String theresult = "";
     				while (rs.next()) {
     					theresult += rs.getString(1) + "\n";
     				}
+    				    				
+    			//Change Result Label to MySQL Result	
+    				System.out.print(ButtonListener.searchbox.isFocused());
+    				System.out.print(ButtonListener.searchbox.isFocus());
     				String Name = ButtonListener.searchbox.getText();
-    				//ButtonListener.results.setText(theresult);
-    				System.out.print(Name);
-    				//ButtonListener.results.setText(Name);
-    				ButtonListener.TextChange(Name);
+    				ButtonListener.TextChange(theresult);
     				splayer.getMainScreen().updateWidget(ButtonListener.results);
 
-		  	  
+    		    //Close Connections
     				rs.close();st.close();con.close();
     			} catch (SQLException e) {
     				e.printStackTrace();
