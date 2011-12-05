@@ -23,28 +23,25 @@ public class TextboxInputListener extends InputListener {
     String password = "new_342by";
     
     public void onKeyPressedEvent(KeyPressedEvent event) {
-    	Player player = event.getPlayer();
-		SpoutPlayer splayer = SpoutManager.getPlayer(player);
-		ButtonListener.searchbox.isFocus();
-    	if (event.getKey() == Keyboard.KEY_RETURN) {
-    		//if(ButtonListener.searchbox.isFocused()){
-    			//ButtonListener.TextChange(splayer);
 
+    	if (event.getKey() == Keyboard.KEY_RETURN) {
+        	Player player = event.getPlayer();
+    		SpoutPlayer splayer = SpoutManager.getPlayer(player);
+    		GuiDisplayClass.searchbox.setFocus(true);
+    		if(GuiDisplayClass.searchbox.isFocused()){
     			try {
     				con = DriverManager.getConnection(url, user, password);
     				st = con.createStatement();
-    				ResultSet rs = st.executeQuery("SELECT name FROM users WHERE name = '" + ButtonListener.searchbox.getText() + "'");
+    				ResultSet rs = st.executeQuery("SELECT name FROM users WHERE name = '" + GuiDisplayClass.searchbox.getText() + "'");
     				String theresult = "";
     				while (rs.next()) {
     					theresult += rs.getString(1) + "\n";
     				}
     				    				
     			//Change Result Label to MySQL Result	
-    				System.out.print(ButtonListener.searchbox.isFocused());
-    				System.out.print(ButtonListener.searchbox.isFocus());
-    				String Name = ButtonListener.searchbox.getText();
-    				ButtonListener.TextChange(theresult);
-    				splayer.getMainScreen().updateWidget(ButtonListener.results);
+    				System.out.print(GuiDisplayClass.searchbox.isFocused());
+    				GuiDisplayClass.results.setText(theresult);
+    				splayer.getMainScreen().updateWidget(GuiDisplayClass.results);
 
     		    //Close Connections
     				rs.close();st.close();con.close();
@@ -52,7 +49,7 @@ public class TextboxInputListener extends InputListener {
     				e.printStackTrace();
     			
     			} 
-    		//}
+    		}
     		
     	}
     }
