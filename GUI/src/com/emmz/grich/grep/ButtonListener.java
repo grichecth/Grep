@@ -5,11 +5,11 @@ import org.getspout.spoutapi.event.screen.ScreenListener;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
 public class ButtonListener extends ScreenListener {
-	public static grep plugin;
+	Grep plugin;
 
     static String SearchBoxText;
 
-    public ButtonListener(grep instance) {
+    public ButtonListener(Grep instance) {
 		plugin = instance;
 	}
     

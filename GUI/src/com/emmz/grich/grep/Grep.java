@@ -10,19 +10,27 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
-public class grep extends JavaPlugin {
-	public static grep plugin;
+public class Grep extends JavaPlugin {
+	Grep plugin = this;
+    public void ButtonListener(Grep instance) {
+    	
+		plugin = instance;
+	}
+
+
+	public static String BgTex = "http://www.ozjobsguide.com.au/blog/wp-content/uploads/2011/03/sample.jpg";
 	private final ButtonListener ScreenListener = new ButtonListener(this);
 	private final TextboxInputListener InputListener = new TextboxInputListener();
 	Logger log = Logger.getLogger("Minecraft");
-		
+	
 	public void onEnable(){ 
 		log.info("Grep enabled!");
 		PluginManager pm = getServer().getPluginManager();
-		String MAINBG = "https://lh6.googleusercontent.com/-QVvKoxCorl0/TtuoXVCpA6I/AAAAAAAAARk/cCBREHB3-2w/s402/Main.png";
-		SpoutManager.getFileManager().addToPreLoginCache(plugin, "https://lh6.googleusercontent.com/-QVvKoxCorl0/TtuoXVCpA6I/AAAAAAAAARk/cCBREHB3-2w/s402/Main.png");
+		SpoutManager.getFileManager().addToPreLoginCache(this.plugin, BgTex);
 		pm.registerEvent(Event.Type.CUSTOM_EVENT, ScreenListener, Event.Priority.Normal, this);
 		pm.registerEvent(Event.Type.CUSTOM_EVENT, InputListener, Event.Priority.Normal, this);
+		
+		
 	}
 
 	public void onDisable(){	
@@ -36,7 +44,10 @@ public class grep extends JavaPlugin {
     		return true;	
 		}													
 	    if(cmd.getName().equalsIgnoreCase("grep")){	
-	    	GuiDisplayClass.Popup(splayer);
+	    	
+	    	GuiDisplayClass popup = new GuiDisplayClass(player, splayer, plugin);
+
+			splayer.getMainScreen().attachPopupScreen(popup);
     		return true;	
 	    } 	
 	    return false;

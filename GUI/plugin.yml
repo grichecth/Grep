@@ -1,6 +1,6 @@
 name: GUI test
 description: GUI Test
-main: com.emmz.grich.grep.grep
+main: com.emmz.grich.grep.Grep
 version: 1.0
 author: Grich
 depend: [Spout]

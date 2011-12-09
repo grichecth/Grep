@@ -39,7 +39,7 @@ public class TextboxInputListener extends InputListener {
     				}
     				    				
     			//Change Result Label to MySQL Result	
-    				System.out.print(GuiDisplayClass.searchbox.isFocused());
+    				System.out.print(player+", "+GuiDisplayClass.searchbox.isFocused());
     				GuiDisplayClass.results.setText(theresult);
     				splayer.getMainScreen().updateWidget(GuiDisplayClass.results);
 
