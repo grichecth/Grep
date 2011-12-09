@@ -12,13 +12,8 @@ import org.getspout.spoutapi.player.SpoutPlayer;
 
 public class Grep extends JavaPlugin {
 	Grep plugin = this;
-    public void ButtonListener(Grep instance) {
-    	
-		plugin = instance;
-	}
 
-
-	public static String BgTex = "http://www.ozjobsguide.com.au/blog/wp-content/uploads/2011/03/sample.jpg";
+	public static String BgTex = "https://lh4.googleusercontent.com/-FjwSATb36Rs/Tt0_5tzA3wI/AAAAAAAAAR4/9NXcJ5_1TUw/s402/Main.png";
 	private final ButtonListener ScreenListener = new ButtonListener(this);
 	private final TextboxInputListener InputListener = new TextboxInputListener();
 	Logger log = Logger.getLogger("Minecraft");
@@ -29,8 +24,6 @@ public class Grep extends JavaPlugin {
 		SpoutManager.getFileManager().addToPreLoginCache(this.plugin, BgTex);
 		pm.registerEvent(Event.Type.CUSTOM_EVENT, ScreenListener, Event.Priority.Normal, this);
 		pm.registerEvent(Event.Type.CUSTOM_EVENT, InputListener, Event.Priority.Normal, this);
-		
-		
 	}
 
 	public void onDisable(){	
@@ -43,15 +36,12 @@ public class Grep extends JavaPlugin {
     		player.sendMessage(ChatColor.YELLOW + "World = " + player.getWorld().getName() + ".");
     		return true;	
 		}													
-	    if(cmd.getName().equalsIgnoreCase("grep")){	
-	    	
+	    if(cmd.getName().equalsIgnoreCase("grep")){		    	
 	    	GuiDisplayClass popup = new GuiDisplayClass(player, splayer, plugin);
-
 			splayer.getMainScreen().attachPopupScreen(popup);
     		return true;	
 	    } 	
 	    return false;
 	}	
-
 }
 

@@ -7,9 +7,7 @@ import org.getspout.spoutapi.player.SpoutPlayer;
 public class ButtonListener extends ScreenListener {
 	Grep plugin;
 
-    static String SearchBoxText;
-
-    public ButtonListener(Grep instance) {
+public ButtonListener(Grep instance) {
 		plugin = instance;
 	}
     
