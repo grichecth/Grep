@@ -13,7 +13,7 @@ public ButtonListener(Grep instance) {
     
 	public void onButtonClick(ButtonClickEvent event) {
     	SpoutPlayer splayer = event.getPlayer();
-        if(event.getButton().getText().equals("close")) {
+        if(event.getButton().getText().equals("Close")) {
             splayer.getMainScreen().closePopup();
         }     	
     }
