@@ -1,13 +1,13 @@
-name: GUI test
-description: GUI Test
+name: Grep
+description: Grichecth Reports
 main: com.emmz.grich.grep.Grep
-version: 1.0
-author: Grich
+version: 0.5
+author: Grichecth
 depend: [Spout]
 commands:
    grep:
       description: GREP
-      usage: /<command> - Opens user manager.
+      usage: /<command> - Opens Gui.
    whereami:
       description: GREP Location
       usage: /<command> - Shows your location.

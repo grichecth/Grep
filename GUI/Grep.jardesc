@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
 <jardesc>
-    <jar path="C:/Users/Monster/Desktop/CraftBukkit/plugins/Shit.jar"/>
+    <jar path="C:/Users/Monster/Desktop/CraftBukkit/plugins/Grep.jar"/>
     <options buildIfNeeded="true" compress="true" descriptionLocation="/GUI/Grep.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
     <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
     <selectedProjects/>
@@ -13,5 +13,6 @@
     <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
         <file path="/GUI/plugin.yml"/>
         <javaElement handleIdentifier="=GUI/src"/>
+        <file path="/GUI/config.yml"/>
     </selectedElements>
 </jardesc>

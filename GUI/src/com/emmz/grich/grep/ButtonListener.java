@@ -2,19 +2,26 @@ package com.emmz.grich.grep;
 
 import org.getspout.spoutapi.event.screen.ButtonClickEvent;
 import org.getspout.spoutapi.event.screen.ScreenListener;
+import org.getspout.spoutapi.gui.PopupScreen;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
-public class ButtonListener extends ScreenListener {
-	Grep plugin;
+import com.emmz.grich.grep.Gui.GrepPopup;
 
+public class ButtonListener extends ScreenListener {
+	private final Grep plugin;
+	
 public ButtonListener(Grep instance) {
-		plugin = instance;
+		this.plugin = instance;
 	}
     
 	public void onButtonClick(ButtonClickEvent event) {
     	SpoutPlayer splayer = event.getPlayer();
+    	PopupScreen activePopup = splayer.getMainScreen().getActivePopup();
         if(event.getButton().getText().equals("Close")) {
-            splayer.getMainScreen().closePopup();
-        }     	
+        	activePopup.close();
+        } else if(event.getButton().getText().equals("Search")) {
+			System.out.print("This ");
+			this.plugin.mysqlpull.MySql("name","users",(GrepPopup)activePopup);
+        }       	
     }
 }
