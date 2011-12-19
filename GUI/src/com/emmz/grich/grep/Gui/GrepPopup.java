@@ -77,7 +77,7 @@ public class GrepPopup extends GenericPopup {
 		this.Search.setPriority(RenderPriority.Normal);
 
 		//Attach Gui Widgets	
-		attachWidget(this.plugin, this.getResults());
+		attachWidget(this.plugin, this.Results);
 		attachWidget(this.plugin, this.Title);
 		attachWidget(this.plugin, this.Search);
 		attachWidget(this.plugin, this.Bg);
@@ -94,8 +94,8 @@ public class GrepPopup extends GenericPopup {
 		return this.SearchBox.getText();
 	}
 
-	public GenericLabel getResults(){
-		return Results;
+	public String getResults(){
+		return Results.getText();
 	}
 
 	public void setResults(String results){

@@ -20,8 +20,7 @@ public ButtonListener(Grep instance) {
         if(event.getButton().getText().equals("Close")) {
         	activePopup.close();
         } else if(event.getButton().getText().equals("Search")) {
-			System.out.print("This ");
-			this.plugin.mysqlpull.MySql("name","users",(GrepPopup)activePopup);
+			this.plugin.mysqlpull.MySql("bio","users",(GrepPopup)activePopup);
         }       	
     }
 }

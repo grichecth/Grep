@@ -1,7 +1,7 @@
 name: Grep
 description: Grichecth Reports
 main: com.emmz.grich.grep.Grep
-version: 0.5
+version: 0.6
 author: Grichecth
 depend: [Spout]
 commands:

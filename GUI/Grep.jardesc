@@ -13,6 +13,5 @@
     <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
         <file path="/GUI/plugin.yml"/>
         <javaElement handleIdentifier="=GUI/src"/>
-        <file path="/GUI/config.yml"/>
     </selectedElements>
 </jardesc>
