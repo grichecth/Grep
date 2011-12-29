@@ -13,6 +13,7 @@ public class GrepPopup extends GenericPopup {
 	GenericLabel  Search;
 	GenericTextField SearchBox;
 	GenericTexture Bg;
+	GenericTexture Profile;
 	GenericButton Settings;
 	GenericButton Help;
 	GenericButton Close;
@@ -26,6 +27,7 @@ public class GrepPopup extends GenericPopup {
 	}
 
 	public void createScreen(SpoutPlayer player){
+		System.out.print(
 		SpoutPlayer splayer = player;
 		//Setup TextField Widgets
 		this.SearchBox = new GenericTextField();
@@ -38,7 +40,13 @@ public class GrepPopup extends GenericPopup {
 		this.Bg.setAnchor(WidgetAnchor.CENTER_CENTER);
 		this.Bg.setPriority(RenderPriority.Highest);
 		this.Bg.setDrawAlphaChannel(true);
-
+		
+		this.Profile = new GenericTexture("http://staff.emmz.com/includes/mcface.php?user="+player.toString().substring(17, player.toString().length()-1).toLowerCase());
+		this.Profile.setWidth(402).setHeight(194).setX(-201).setY(-97);	//Need to start from here..
+		this.Profile.setAnchor(WidgetAnchor.CENTER_CENTER);
+		this.Profile.setPriority(RenderPriority.Highest);
+		this.Profile.setDrawAlphaChannel(true);
+		
 		//Setup Button Widgets
 		this.SearchButton = new GenericButton("Search");
 		this.SearchButton.setWidth(50).setHeight(14).setX(72).setY(77);

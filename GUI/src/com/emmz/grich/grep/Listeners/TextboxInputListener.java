@@ -18,7 +18,7 @@ public class TextboxInputListener extends InputListener {
 		SpoutPlayer splayer = event.getPlayer();
 		PopupScreen activePopup = splayer.getMainScreen().getActivePopup();
 		if (event.getKey() == Keyboard.KEY_RETURN) {	
-			this.plugin.mysqlpull.MySql("bio","users",(GrepPopup)activePopup);
+			//this.plugin.mysqlpull.MySql("bio","users",(GrepPopup)activePopup);
 		}
 	}
 }
