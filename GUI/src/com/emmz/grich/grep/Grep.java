@@ -8,8 +8,9 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.player.SpoutPlayer;
-
 import com.emmz.grich.grep.Gui.GrepPopup;
+import com.emmz.grich.grep.Listeners.ButtonListener;
+import com.emmz.grich.grep.Listeners.TextboxInputListener;
 
 public class Grep extends JavaPlugin {
 	public MySqlPull mysqlpull;
@@ -21,8 +22,9 @@ public class Grep extends JavaPlugin {
 	Logger log = Logger.getLogger("Minecraft");
 
 	public void onEnable(){ 
-		log.info("Grep enabled!");
+		log.info("| Grichecth's Reporting plugin enabled |");
 		conf.load();
+		log.info("| Grichecth's Reporting settings successfully loaded |");
 		PluginManager pm = getServer().getPluginManager();
 		SpoutManager.getFileManager().addToPreLoginCache(plugin, BgTex);
 		pm.registerEvent(Event.Type.CUSTOM_EVENT, ScreenListener, Event.Priority.Normal, this);
@@ -36,7 +38,8 @@ public class Grep extends JavaPlugin {
 
 	}
 
-	public void onDisable(){	
+	public void onDisable(){
+		log.info("| Grichecth's Reporting plugin disabled |");
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){

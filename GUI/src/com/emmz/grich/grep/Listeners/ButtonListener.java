@@ -1,10 +1,11 @@
-package com.emmz.grich.grep;
+package com.emmz.grich.grep.Listeners;
 
 import org.getspout.spoutapi.event.screen.ButtonClickEvent;
 import org.getspout.spoutapi.event.screen.ScreenListener;
 import org.getspout.spoutapi.gui.PopupScreen;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
+import com.emmz.grich.grep.Grep;
 import com.emmz.grich.grep.Gui.GrepPopup;
 
 public class ButtonListener extends ScreenListener {

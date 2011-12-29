@@ -1,5 +1,5 @@
 name: Grep
-description: Grichecth Reports
+description: Grichecth Reporting
 main: com.emmz.grich.grep.Grep
 version: 0.6
 author: Grichecth
@@ -8,6 +8,3 @@ commands:
    grep:
       description: GREP
       usage: /<command> - Opens Gui.
-   whereami:
-      description: GREP Location
-      usage: /<command> - Shows your location.
